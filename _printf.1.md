@@ -9,22 +9,39 @@ _printf - a custom implementation of the printf function
 
 # SYNOPSIS
 int _printf(const char *fmt, ...);
+
 int print_character(va_list c);
+
 void print(const char *format, unsigned int *i, unsigned int *counter, va_list *ap, flags_t *flags);
+
 void init_flags(flags_t *flag, va_list *ap);
+
 int _printf(const char *fmt, ...);
+
 int print_character(va_list c, flags_t *f);
+
 int print_string(va_list s, flags_t *f);
+
 int print_integer(va_list i, flags_t *f);
+
 int print_d(va_list d, flags_t *f);
+
 int print_binary(va_list b, flags_t *f);
+
 int print_unsigned(va_list u, flags_t *f);
+
 int print_hex(va_list x, flags_t *f);
+
 int print_HEX(va_list X, flags_t *f);
+
 int print_octal(va_list o, flags_t *f);
+
 int print_reverse(va_list r, flags_t *f);
+
 int print_STRING(va_list S, flags_t *f);
+
 int print_pointer(va_list p, flags_t *f);
+
 int print_ROT(va_list R, flags_t *f);
 
 
@@ -38,9 +55,13 @@ The format string is a character string. It is composed of zero or more directiv
 
 ## Flag characters
 **+** positive number - for %d and %i
+
 **-** right alignment - for %d and %i
+
 **space** - for all specifiers
+
 **l and h** - l for long and h for short
+
 **#**  - adds prefix of 0x to %x and 0X to X
 
 
@@ -70,15 +91,25 @@ Conversion specifier is a character that specifies the type of conversion to be 
 
 # EXAMPLES
 _printf("%c", /single character/)
+
 _printf("%s", /string of characters/)
+
 _printf("%i", /base 10 integer/)
+
 _printf("%d", /decimal (base 10) numbers/)
+
 _printf("%x", /lowercase hexadecimal/)
+
 _printf("%X", /uppercase hexadecimal/)
+
 _printf("%S", /replace unprintable characters in a string with their hex value/)
+
 _printf("%r", /reverse of a string/)
+
 _printf("%R", /ROT13 format/)
+
 _printf("%u", /unsigned int/)
+
 _printf("%b", /binary integer/)
 
 
@@ -101,10 +132,15 @@ Contributor - Ihedioha Ezinwa Ezimma
 
 # FILES
 **main.h**
+
 **_printf.c**
+
 **custom_func.c**
+
 **base_cases.c**
+
 **other_cases.c**
+
 **more_cases.c**
 
 
@@ -113,4 +149,4 @@ Refer to *bugs*
 
 
 # COPYRIGHT
-Copyright © 2022 Kelvin Adeyemo Allison, Ihedioha Ezinwa Ezimma. License
+Copyright © 2022 Kelvin Adeyemo Allison, Ihedioha Ezinwa Ezimma.
