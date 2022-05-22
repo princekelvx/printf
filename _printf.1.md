@@ -12,37 +12,37 @@ int _printf(const char *fmt, ...);
 
 int print_character(va_list c);
 
-void print(const char *format, unsigned int *i, unsigned int *counter, va_list *ap, flags_t *flags);
+void print(const char \*format, unsigned int \*i, unsigned int \*counter, va_list \*ap, flags_t \*flags);
 
-void init_flags(flags_t *flag, va_list *ap);
+void init_flags(flags_t \*flag, va_list \*ap);
 
 int _printf(const char *fmt, ...);
 
-int print_character(va_list c, flags_t *f);
+int print_character(va_list c, flags_t \*f);
 
-int print_string(va_list s, flags_t *f);
+int print_string(va_list s, flags_t \*f);
 
-int print_integer(va_list i, flags_t *f);
+int print_integer(va_list i, flags_t \*f);
 
-int print_d(va_list d, flags_t *f);
+int print_d(va_list d, flags_t \*f);
 
-int print_binary(va_list b, flags_t *f);
+int print_binary(va_list b, flags_t \*f);
 
-int print_unsigned(va_list u, flags_t *f);
+int print_unsigned(va_list u, flags_t \*f);
 
-int print_hex(va_list x, flags_t *f);
+int print_hex(va_list x, flags_t \*f);
 
-int print_HEX(va_list X, flags_t *f);
+int print_HEX(va_list X, flags_t \*f);
 
-int print_octal(va_list o, flags_t *f);
+int print_octal(va_list o, flags_t \*f);
 
-int print_reverse(va_list r, flags_t *f);
+int print_reverse(va_list r, flags_t \*f);
 
-int print_STRING(va_list S, flags_t *f);
+int print_STRING(va_list S, flags_t \*f);
 
-int print_pointer(va_list p, flags_t *f);
+int print_pointer(va_list p, flags_t \*f);
 
-int print_ROT(va_list R, flags_t *f);
+int print_ROT(va_list R, flags_t \*f);
 
 
 # DESCRIPTION
@@ -67,27 +67,28 @@ The format string is a character string. It is composed of zero or more directiv
 
 ## Conversion specifiers
 Conversion specifier is a character that specifies the type of conversion to be applied:
-	**c**  prints a single character
+	
+**c**  prints a single character
 
-	**s, S** **s** prints a string of characters, while **S** prints a string of characters but replaces unprintble characters with their hex value
+**s, S** **s** prints a string of characters, while **S** prints a string of characters but replaces unprintble characters with their hex value
 
-	**i** a conversion specifier for integers in base 10
+**i** a conversion specifier for integers in base 10
 
-	**d** a conversion specifier for decimal (base 10) numbers
+**d** a conversion specifier for decimal (base 10) numbers
 
-	**x, X** **x** prints lowercase hexadecimals (base 16), while **X** prints uppercase hexadecimals (base 16)
+**x, X** **x** prints lowercase hexadecimals (base 16), while **X** prints uppercase hexadecimals (base 16)
 
-	**p** a conversion specifier for pointers
+**p** a conversion specifier for pointers
 
-	**r** prints the reverse of a string
+**r** prints the reverse of a string
 
-	**R** prints a string in ROT13 format
+**R** prints a string in ROT13 format
 
-	**b** a conversion specifier for binary integers
+**b** a conversion specifier for binary integers
 
-	**u** a conversion specifier for unsigned int
+**u** a conversion specifier for unsigned int
 
-	**o** a conversion specifier for octal (base 8)
+**o** a conversion specifier for octal (base 8)
 
 # EXAMPLES
 _printf("%c", /single character/)
@@ -131,17 +132,17 @@ Contributor - Ihedioha Ezinwa Ezimma
 
 
 # FILES
-**main.h**
+main.h
 
-**_printf.c**
+_printf.c
 
-**custom_func.c**
+custom_func.c
 
-**base_cases.c**
+base_cases.c
 
-**other_cases.c**
+other_cases.c
 
-**more_cases.c**
+more_cases.c
 
 
 # CAVEATS
