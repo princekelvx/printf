@@ -40,8 +40,9 @@ For more information refer to man **_printf**
 
 
 # CONTACTS
-	[The link is](princekelvx@gmail.com)
-	[The link is](ihediohezinwa@gmail.com)
+	princekelvx@gmail.com
+
+	ihediohezinwa@gmail.com
 
 
 # COPYRIGHT
