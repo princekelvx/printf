@@ -9,7 +9,7 @@ This is simply a ustom implementation of the standard printf function. It produc
 
 ### EXAMPLE
 int main (void)
-{
+\{
 	int lie_count;
 
 	lie_count = 5;
@@ -19,19 +19,25 @@ int main (void)
 
 The output is **5**.
 Here, %d specifies that lie_count be a decimal (base 10) number.
-There are many other conversion specifiers used in the function. Refer to **man _printf**
+There are many other conversion specifiers used in the function. Refer to **man** **_printf**
 
 
 ## CREDITS
 
 ### Major contributor
+
 	**Kelvin Adeyemo Allison**
+
 #### Github profile
+
 	[This is the link](https://https://github.com/princekelvx)
 
 ### Other contributor
+
 	**Ihedioha Ezinwa Ezimma**
+
 #### Github profile
+
 	[This is the link](https://github.com/2003Ezinwa)
 
 
@@ -40,8 +46,9 @@ For more information refer to man **_printf**
 
 
 # CONTACTS
-	[The link is](princekelvx@gmail.com)
-	[The link is](ihediohezinwa@gmail.com)
+	princekelvx@gmail.com
+
+	ihediohezinwa@gmail.com
 
 
 # COPYRIGHT
