@@ -82,6 +82,7 @@ int print_address(va_list ap, params_t *params)
 	return (print_number(str, params));
 }
 
+#include "main.h"
 
 /**
  * init_params - clears struct fields and reset buf
@@ -107,7 +108,6 @@ void init_params(params_t *params, va_list ap)
 	params->l_modifier = 0;
 	(void)ap;
 }
-
 
 /**
  * get_precision - gets the precision from the format string
