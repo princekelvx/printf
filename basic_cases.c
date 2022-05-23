@@ -29,12 +29,11 @@ int print_character(va_list c, flags_t *f)
 int print_string(va_list s, flags_t *f)
 {
 	char *str = va_arg(s, char *);
-	int i = 0;
 
 	(void)f;
 	if (!str)
-		s = "(null)";
-	return (_puts(s));
+		str = "(null)";
+	return (_puts(str));
 }
 
 /**
