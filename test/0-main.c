@@ -18,7 +18,7 @@ int main(void)
     len2 = printf("Let's try to printf a simple sentence.\n");
     ui = (unsigned int)INT_MAX + 1024;
     addr = (void *)0x7ffe637541f0;
-    _printf("Length:[%d, %i]\n", len, len);
+    _printf("Length:[% d, %i]\n", len, len);
     printf("Length:[%d, %i]\n", len2, len2);
     _printf("Negative:[%d]\n", -762534);
     printf("Negative:[%d]\n", -762534);
@@ -40,8 +40,8 @@ int main(void)
     printf("Len:[%d]\n", len2);
     _printf("Unknown:[%r]\n", "hello");
     printf("Unknown:[%r]\n");
-    printf("Unknown:[%w] %d %          d [%s]\n", 50, 50, "hello");   
-    _printf("Unknown:[%w] %d %         b [%s]\n", 50, 50, "hello");
+    printf("Unknown:[%w] %d % d [%s]\n", 50, 50, "hello");   
+    _printf("Unknown:[%w] %d %b [%s]\n", 50, 50, "hello");
     _printf("%+i %d\n", 50, -60);
     printf("%+hd, %li, %lu, %ho, %x, %hx, %lx, %#x, %#hx, %#lx\n", 60000000000000, 60000000000000, 60000000000000, 60000000000000, 60000000000000, 60000000000000, 60000000000000, 60000000000000, 60000000000000, 60000000000000); 
     _printf("%hd, %li, %lu, %ho, %x, %hx, %lx, %#x, %#hx, %#lx\n", 60000000000000, 60000000000000, 60000000000000, 60000000000000, 60000000000000, 60000000000000, 60000000000000, 60000000000000, 60000000000000, 60000000000000);

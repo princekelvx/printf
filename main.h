@@ -17,6 +17,7 @@ typedef struct flags
 {
 	unsigned int plus: 1;
 	unsigned int minus: 1;
+	unsigned int space: 1;
 	unsigned int hash: 1;
 	unsigned int h: 1;
 	unsigned int l: 1;
@@ -38,10 +39,11 @@ int _putchar(char c);
 int _puts(char *str);
 int _strlen(char *s);
 void putnum(int n);
+int count_digit(int i);
 void loop_through(const char *in, unsigned int *count, unsigned int *i);
 void handle_percentage(unsigned int *count, unsigned int *i);
 int get_flag(char s, flags_t *f);
-void use_mod(unsigned int *res, unsigned int *l, unsigned int *h);
+void use_mod(int *res, int *l, int *h);
 char *convert(unsigned long int num, int base, int lowercase);
 
 /**

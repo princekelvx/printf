@@ -48,77 +48,46 @@ int print_string(va_list s, flags_t *f)
 
 int print_integer(va_list i, flags_t *f)
 {
-	unsigned int a[10];
-	unsigned int j = 1, m = 1000000000, n, sum = 0, counter = 0;
-	unsigned int l = f->l, h = f->h, plus = f->plus,
-		     minus = f->minus;
-	unsigned int res = 0;
+	long n;
+	int counter;
 
-	n = va_arg(i, unsigned int);
-	a[0] = n / m;
+	if (f->l == 1)
+		n = va_arg(i, long);
+	else if (f->h == 1)
+		n = (short int)va_arg(i, int);
+	else
+		n = (int)va_arg(i, int);
 
-	for (; j < 10; j++)
-	{
-		m /= 10;
-		a[j] = (n / m) % 10;
-	}
-
-	for (j = 0; j < 10; j++)
-	{
-		sum += a[j];
-		if (sum != 0 || j == 9)
-		{
-			res = 10 * res + a[j];
-			counter++;
-		}
-	}
-	if (plus == 1)
+	counter = count_digit(n);
+	if (f->plus == 1)
 		_putchar('+');
-	else if (minus == 1)
+	else if (f->minus == 1)
 		_putchar('-');
-	use_mod(&res, &l, &h);
+	putnum(n);
 	return (counter);
 }
 
 /**
- * print_d - prints a base 10 decimal
- * @i: base 10 integer to print
- * @f: flag
- * Return: number of printed digits
+ * count_digit - returns the number of digits in an integer
+ * for _printf
+ * @i: integer to evaluate
+ * Return: number of digits
  */
-
-int print_d(va_list i, flags_t *f)
+int count_digit(int i)
 {
-	unsigned int a[10];
-	unsigned int j = 1, m = 1000000000, n, sum = 0, counter = 0;
-	unsigned int l = f->l, h = f->h, plus = f->plus,
-		minus = f->minus;
-	unsigned int res = 0;
+	unsigned int d = 0;
+	unsigned int u;
 
-	n = va_arg(i, unsigned int);
-	a[0] = n / m;
-
-	for (; j < 10; j++)
+	if (i < 0)
+		u = i * -1;
+	else
+		u = i;
+	while (u != 0)
 	{
-		m /= 10;
-		a[j] = (n / m) % 10;
+		u /= 10;
+		d++;
 	}
-
-	for (j = 0; j < 10; j++)
-	{
-		sum += a[j];
-		if (sum != 0 || j == 9)
-		{
-			res = 10 * res + a[j];
-			counter++;
-		}
-	}
-	if (plus == 1)
-		_putchar('+');
-	else if (minus == 1)
-		_putchar('-');
-	use_mod(&res, &l, &h);
-	return (counter);
+	return (d);
 }
 
 /**

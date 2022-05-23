@@ -64,6 +64,10 @@ int get_flag(char s, flags_t *f)
 		f->hash = 1;
 		i = 0;
 		break;
+	case ' ':
+		f->space = 1;
+		i = 0;
+		break;
 	}
 	return (i);
 }
@@ -74,9 +78,9 @@ int get_flag(char s, flags_t *f)
  * @h: flag variable
  * @res: result to print
  */
-void use_mod(unsigned int *res, unsigned int *l, unsigned int *h)
+void use_mod(int *res, int *l, int *h)
 {
-	unsigned int result = *res;
+	int result = *res;
 	long longres = *res;
 	short shortres = *res;
 

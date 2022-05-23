@@ -13,7 +13,7 @@ int (*check_format(const char *fmt))(va_list ap, flags_t *flags)
 		{"c", print_character},
 		{"s", print_string},
 		{"i", print_integer},
-		{"d", print_d},
+		{"d", print_integer},
 		{"b", print_binary},
 		{"u", print_unsigned},
 		{"x", print_hex},
@@ -49,7 +49,7 @@ void check_flag(const char *fmt, unsigned int *i)
 	if (fmt[*i + 1] == ' ')
 	{
 		*i += 1;
-		check_flag(fmt, &*i);
+		_putchar(' ');
 	}
 }
 
@@ -64,6 +64,7 @@ void init_flags(flags_t *flag, va_list *ap)
 {
 	flag->plus = 0;
 	flag->minus = 0;
+	flag->space = 0;
 	flag->hash = 0;
 	flag->h = 0;
 	flag->l = 0;
@@ -136,7 +137,7 @@ int _printf(const char *format, ...)
 	va_list ap;
 	/*int (*f)(va_list, flags_t *);*/
 	unsigned int i = 0, counter = 0;
-	flags_t flags = {0, 0, 0, 0, 0};
+	flags_t flags = {0, 0, 0, 0, 0, 0};
 
 	if (format == NULL)
 		return (-1);
