@@ -46,14 +46,11 @@ int _strlen(char *s)
 
 int _puts(char *str)
 {
-	int i = 0;
+	char *a = str;
 
-	while (i < _strlen(str))
-	{
-		_putchar(str[i]);
-		i++;
-	}
-	return (i);
+	while (*str)
+		_putchar(*str++);
+	return (str - a);
 }
 
 /**
