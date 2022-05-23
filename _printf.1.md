@@ -142,7 +142,7 @@ basic_cases.c
 
 other_cases.c
 
-more_functions.h
+more_functions.c
 
 choose_specifier.c
 
