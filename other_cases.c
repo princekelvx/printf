@@ -120,12 +120,16 @@ int print_HEX(va_list X, flags_t *f)
 int print_reverse(va_list r, flags_t *f)
 {
 	char *strrev = va_arg(r, char *);
-	int i = _strlen(strrev);
+	int len, sum = 0;
 
 	(void)f;
-	if (strrev == NULL)
-		strrev = "(null)";
-	while (i >= 0)
-		_putchar(strrev[i--]);
-	return (i);
+	if (strrev)
+	{
+		for (len = 0; *strrev; strrev++)
+			len++;
+		strrev--;
+		for (; len > 0; len--, strrev--)
+			sum += _putchar(*strrev);
+	}
+	return (sum);
 }
