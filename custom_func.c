@@ -46,7 +46,7 @@ int _strlen(char *s)
  * @str: string to be printed
  */
 
-void _puts(char *str)
+int _puts(char *str)
 {
 	int i = 0;
 
@@ -55,6 +55,7 @@ void _puts(char *str)
 		_putchar(str[i]);
 		i++;
 	}
+	return (i);
 }
 
 /**

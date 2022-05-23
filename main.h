@@ -35,7 +35,7 @@ typedef struct print
 
 /* helpers */
 int _putchar(char c);
-void _puts(char *str);
+int _puts(char *str);
 int _strlen(char *s);
 void putnum(int n);
 void loop_through(const char *in, unsigned int *count, unsigned int *i);
