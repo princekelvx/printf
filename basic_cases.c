@@ -1,125 +1,79 @@
 #include "main.h"
-#include <unistd.h>
-#include <stdlib.h>
 
 /**
- * print_character - prints character
- * @c: char to print
- * @f: flag
- * Description: print character
- * Return: 1
+ * print_from_to - prints a range of char addresses
+ * @start: starting address
+ * @stop: stopping address
+ * @except: except address
+ *
+ * Return: number bytes printed
  */
-
-int print_character(va_list c, flags_t *f)
+int print_from_to(char *start, char *stop, char *except)
 {
-	char charac = (char)va_arg(c, int);
+	int sum = 0;
 
-	(void)f;
-	_putchar(charac);
-	return (1);
-}
-
-/**
- * print_string - prints a string
- * @s: string to print
- * @f: flag
- * Return: 1
- */
-
-int print_string(va_list s, flags_t *f)
-{
-	char *str = va_arg(s, char *);
-	int i = 0;
-
-	(void)f;
-	if (str == NULL)
-		str = "(null)";
-	while (str[i])
-		_putchar(str[i++]);
-	return (i);
-}
-
-/**
- * print_integer - prints base 10 integers
- * @i: integer to print
- * @f: flag
- * Return: number of printed digits
- */
-
-int print_integer(va_list i, flags_t *f)
-{
-	long n;
-	int counter;
-
-	if (f->l == 1)
-		n = va_arg(i, long);
-	else if (f->h == 1)
-		n = (short int)va_arg(i, int);
-	else
-		n = (int)va_arg(i, int);
-
-	counter = count_digit(n);
-	if (f->plus == 1)
-		_putchar('+');
-	else if (f->minus == 1)
-		_putchar('-');
-	putnum(n);
-	return (counter);
-}
-
-/**
- * count_digit - returns the number of digits in an integer
- * for _printf
- * @i: integer to evaluate
- * Return: number of digits
- */
-int count_digit(int i)
-{
-	unsigned int d = 0;
-	unsigned int u;
-
-	if (i < 0)
-		u = i * -1;
-	else
-		u = i;
-	while (u != 0)
+	while (start <= stop)
 	{
-		u /= 10;
-		d++;
+		if (start != except)
+			sum += _putchar(*start);
+		start++;
 	}
-	return (d);
+	return (sum);
 }
 
 /**
- * print_binary - prints unsigned int in binary
- * @b: unsigned int to print
- * @f: flag
- * Return: num of printed digits
+ * print_rev - prints string in reverse
+ * @ap: string
+ * @params: the parameters struct
+ *
+ * Return: number bytes printed
  */
-
-int print_binary(va_list b, flags_t *f)
+int print_rev(va_list ap, params_t *params)
 {
-	unsigned int n, m = 2147483648, j = 1, sum = 0;
-	unsigned int a[32];
-	int counter = 0;
+	int len, sum = 0;
+	char *str = va_arg(ap, char *);
+	(void)params;
 
-	(void)f;
-	n = va_arg(b, unsigned int);
-	a[0] = n / m;
-
-	for (; j < 32; j++)
+	if (str)
 	{
-		m /= 2;
-		a[j] = (n / m) % 2;
+		for (len = 0; *str; str++)
+			len++;
+		str--;
+		for (; len > 0; len--, str--)
+			sum += _putchar(*str);
 	}
-	for (j = 0; j < 32; j++)
+	return (sum);
+}
+
+/**
+ * print_rot13 - prints string in rot13
+ * @ap: string
+ * @params: the parameters struct
+ *
+ * Return: number bytes printed
+ */
+int print_rot13(va_list ap, params_t *params)
+{
+	int i, index;
+	int count = 0;
+	char arr[] =
+		"NOPQRSTUVWXYZABCDEFGHIJKLM      nopqrstuvwxyzabcdefghijklm";
+	char *a = va_arg(ap, char *);
+	(void)params;
+
+	i = 0;
+	index = 0;
+	while (a[i])
 	{
-		sum += a[j];
-		if (sum || j == 31)
+		if ((a[i] >= 'A' && a[i] <= 'Z')
+		    || (a[i] >= 'a' && a[i] <= 'z'))
 		{
-			_putchar('0' + a[j]);
-			counter++;
+			index = a[i] - 65;
+			count += _putchar(arr[index]);
 		}
+		else
+			count += _putchar(a[i]);
+		i++;
 	}
-	return (counter);
+	return (count);
 }

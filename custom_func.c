@@ -9,21 +9,19 @@
  * On error, -1 is returned, and errno is set appropriately
  */
 
-int _putchar(char c)
+int _putchar(int c)
 {
 	static int i;
-	static char buf[BUFSIZE];
+	static char buf[OUTPUT_BUF_SIZE];
 
-	if (c == -1 || i >= BUFSIZE)
+	if (c == BUF_FLUSH || i >= OUTPUT_BUF_SIZE)
 	{
 		write(1, buf, i);
 		i = 0;
 	}
-	if (c != -1)
+	if (c != BUF_FLUSH)
 		buf[i++] = c;
 	return (1);
-	/*old putchar*/
-	/*return (write(1, &c, 1));*/
 }
 
 /**
@@ -59,23 +57,43 @@ int _puts(char *str)
 }
 
 /**
- * putnum - helper function that loops through
- * an integer and prints all its digits
- * @n: integer to be printed
+ * print_number - prints a number with options
+ * @str: the base number as a string
+ * @params: the parameter struct
+ *
+ * Return: chars printed
  */
-void putnum(int n)
+int print_number(char *str, params_t *params)
 {
-	unsigned int n1;
+	unsigned int i = _strlen(str);
+	int neg = (!params->unsign && *str == '-');
 
-	if (n < 0)
+	if (!params->precision && *str == '0' && !str[1])
+		str = "";
+	if (neg)
 	{
-		_putchar('-');
-		n1 = -n;
+		str++;
+		i--;
 	}
-	else
-		n1 = n;
+	if (params->precision != UINT_MAX)
+		while (i++ < params->precision)
+			*--str = '0';
+	if (neg)
+		*--str = '-';
 
-	if (n1 / 10)
-		putnum(n1 / 10);
-	_putchar((n1 % 10) + '0');
+	if (!params->minus_flag)
+		return (print_number_right_shift(str, params));
+	else
+		return (print_number_left_shift(str, params));
+}
+
+/**
+ * _isdigit - checks if character is digit
+ * @c: the character to check
+ *
+ * Return: 1 if digit, 0 otherwise
+ */
+int _isdigit(int c)
+{
+	return (c >= '0' && c <= '9');
 }
