@@ -32,11 +32,9 @@ int print_string(va_list s, flags_t *f)
 	int i = 0;
 
 	(void)f;
-	if (str == NULL)
-		str = "(null)";
-	while (str[i])
-		_putchar(str[i++]);
-	return (i);
+	if (!str)
+		s = "(null)";
+	return (_puts(s));
 }
 
 /**
