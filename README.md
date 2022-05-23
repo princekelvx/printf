@@ -31,7 +31,7 @@ There are many other conversion specifiers used in the function. Refer to man **
 
 #### Github profile
 
-[This is the link](https://github.com/princekelvx)
+[Github profile link](https://github.com/princekelvx)
 
 ### Other contributor
 
@@ -39,7 +39,7 @@ There are many other conversion specifiers used in the function. Refer to man **
 
 #### Github profile
 
-[This is the link](https://github.com/2003Ezinwa)
+[Github profile link](https://github.com/2003Ezinwa)
 
 
 # MORE INFO
@@ -47,9 +47,9 @@ For more information refer to man **_printf**
 
 
 # CONTACTS
-[This is the link](princekelvx@gmail.com)
+[Kelvin Adeyemo's email](princekelvx@gmail.com)
 
-[This is the link](ihediohezinwa@gmail.com)
+[Ihedioha Ezinwa's email](ihediohezinwa@gmail.com)
 
 
 # COPYRIGHT
