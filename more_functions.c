@@ -12,28 +12,36 @@
 
 int print_STRING(va_list S, flags_t *f)
 {
-	unsigned int i = 0;
+	char *hex;
 	int counter = 0;
 	char *str = va_arg(S, char *);
 
 	(void)f;
-	if (str == NULL)
-		str = "(null)";
-	for (; str[i]; i++)
+	if ((int)(!str))
 	{
-		if (str[i] < 32 || str[i] >= 127)
+		puts("(null)");
+		counter += _strlen("(null)");
+		return (counter);
+	}
+	for (; *str; str++)
+	{
+		if ((*str > 0 && *str < 32) || *str >= 127)
 		{
-			_putchar('\\');
-			_putchar('x');
-			counter += 2;
-			counter += print_hex(S, NULL);
+			counter += _putchar('\\');
+			counter += _putchar('x');
+			hex = convert(*str, 16, 1);
+			if (!hex[1])
+				counter += _putchar('0');
+			_puts(hex);
+			counter += _strlen(hex);
 		}
 		else
 		{
-			_putchar(str[i]);
-			counter++;
+			_putchar(*str);
+			counter += _strlen(str);
 		}
 	}
+	
 	return (counter);
 }
 
