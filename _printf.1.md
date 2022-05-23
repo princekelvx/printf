@@ -138,11 +138,19 @@ _printf.c
 
 custom_func.c
 
-base_cases.c
+basic_cases.c
 
 other_cases.c
 
-more_cases.c
+more_functions.h
+
+choose_specifier.c
+
+custom_func2.c
+
+helper_functions.c
+
+main.h.gch
 
 
 # CAVEATS
